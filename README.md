@@ -13,28 +13,27 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-
+  > Sanctuary
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > This program is designed for anyone who wants to keep their children safe from unknown sexual predators in their Facebook friends list.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Simply give Sanctuary access to your friend's list and Sanctuary will show you who on your friends list might be a convicted sex offender.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > This program helps keep your personal information safe from people who might exploit it.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Sanctuary simply cross references your friends list with the list of convicted sex offenders in the United States.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "I created this product so that I could prevent my personal pictures and information from falling into the hands of sexual predators." -Ben Nelson
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Getting started is simple.  Just go to http://www.sanctuary.com and sign in with your Facebook account.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Sanctuary has given me so much peace of mind.  Now I know when I post pictures of my children for my friends to see there isn't some sexual deviant looking at them."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Sanctuary is a free service.  After checking your friend's list please recommend it to your friends.  Together we can keep our children safe from sexual predators.
