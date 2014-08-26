@@ -1,3 +1,6 @@
 app.controller('appController', function($scope){
-  $scope.hello = "Hello World!";
+  $scope.test = 'Hi there!';
+  $scope.submit = function() {
+    $scope.data = $scope.test;
+  }
 });
