@@ -5,19 +5,41 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
-  <script src="http://connect.facebook.net/en_US/all.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js"></script>
+  <!-- <script src="http://connect.facebook.net/en_US/all.js"></script> -->
+  <script type="text/javascript" src="http://www.iowasexoffender.com/js/api.js"></script>
   <script src="model.js"></script>
   <script src="controller.js"></script>
   <script src="factory.js"></script>
-  <script>
+  <!-- <script>
   FB.init({
     appId  : '919951414698419',
     status : true, 
     cookie : true, 
     xfbml  : true  
   });
-  </script>
+   </script> -->
   <script src="init.js"></script>
+  <script type="text/javascript">
+
+      // var search = new IOWA.SOR();
+      // var criteria = new IOWA.SOR.CRITERIA();
+
+      // criteria.set('city','des moines'); // any item described in the query section may be used
+      
+      // criteria.limit(10); // records per "page"
+      // criteria.page(1); // default is 1, start on any page
+
+
+      // // execute search, passing the service url, criteria, and a callback funciton
+      // search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
+      //   console.log('JSONP TEST', response);
+      //     // response contains full response object as described in the api info page
+          
+      // });
+
+  </script>
+
 </head>
 <body ng-app="app">
   <div ng-controller="appController">

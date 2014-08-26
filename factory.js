@@ -14,17 +14,67 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
     return resultData;
   };
 
-  var apiQuery = function(query){
-    return $http({
-      method: 'GET',
-      dataType: 'JSON',
-      url: query,
-    }).results;
-  };
+  // var params = {
+  //   pageNr: 1,
+  //   pageSize: 5,
+  //   enqueteId: "foo",
+  //   sortColumn: "undefined",
+  //   sortDirection: "undefined"
+  // };
 
-  return {
-    processData: processData
-  };
+  var apiQuery = function(query){
+
+
+    // return $resource(query, {}, {
+    //   fetch: {
+    //     method: 'JSONP',
+    //     params: params,
+    //     headers: {
+    //       'Accept': 'application/json, text/javascript',
+    //       'Content-Type': 'application/json; charset=utf-8'
+    //     },
+    //     isArray: false,
+    //     callback: 'JSON_CALLBACK'
+    //   }
+    // });
+
+
+var search = new IOWA.SOR();
+var criteria = new IOWA.SOR.CRITERIA();
+
+criteria.set('city','des moines'); // any item described in the query section may be used
+
+criteria.limit(10); // records per "page"
+criteria.page(1); // default is 1, start on any page
+
+
+// execute search, passing the service url, criteria, and a callback funciton
+search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
+  console.log('JSONP TEST', response);
+    // response contains full response object as described in the api info page
+    
+});
+
+return response;
+
+
+    // return $http({
+    //   method: 'GET',
+    //   dataType: 'JSONP',
+    //   url: query,
+    //   headers: {
+    //     'Accept': 'application/json, text/javascript',
+    //     'Content-Type': 'application/json; charset=utf-8'
+    //   },
+    //   jsonp: 'jsonp_callback'
+    // }).results;
+};
+
+
+
+return {
+  processData: processData
+};
 }]);
 
 /////TO DO: ADD a server (maybe on Parse.com?) and then refactor my code to be able to make requests to the server.
