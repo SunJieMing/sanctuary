@@ -1,7 +1,7 @@
 app.factory('appFactory',['$resource', '$http', function($resource, $http){
   var query = 'http://www.iowasexoffender.com/api/search/results.json?';
   $http.defaults.useXDomain = true;
-
+  var dataStorage = [];
   var processData = function(friendsArray, cb){
     var resultData = [];
     for(var i = 0; i < friendsArray.length; i++){
@@ -15,30 +15,9 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
     return resultData;
   };
 
-  // var params = {
-  //   pageNr: 1,
-  //   pageSize: 5,
-  //   enqueteId: "foo",
-  //   sortColumn: "undefined",
-  //   sortDirection: "undefined"
-  // };
+
 
   var apiQuery = function(firstname, lastname, cb){
-
-
-    // return $resource(query, {}, {
-    //   fetch: {
-    //     method: 'JSONP',
-    //     params: params,
-    //     headers: {
-    //       'Accept': 'application/json, text/javascript',
-    //       'Content-Type': 'application/json; charset=utf-8'
-    //     },
-    //     isArray: false,
-    //     callback: 'JSON_CALLBACK'
-    //   }
-    // });
-
 
     var search = new IOWA.SOR();
     var criteria = new IOWA.SOR.CRITERIA();
@@ -52,30 +31,16 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
     // execute search, passing the service url, criteria, and a callback funciton
     var data;
     return search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
-      console.log('JSONP TEST', response);
         // response contains full response object as described in the api info page
+        dataStorage.push(response);
         return cb(response);
       });
-
-    //return data;
-
-
-    // return $http({
-    //   method: 'GET',
-    //   dataType: 'JSONP',
-    //   url: query,
-    //   headers: {
-    //     'Accept': 'application/json, text/javascript',
-    //     'Content-Type': 'application/json; charset=utf-8'
-    //   },
-    //   jsonp: 'jsonp_callback'
-    // }).results;
-};
-
+  };
 
 
 return {
-  processData: processData
+  processData: processData,
+  dataStorage: dataStorage
 };
 }]);
 

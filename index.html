@@ -43,9 +43,13 @@
 </head>
 <body ng-app="app">
   <div ng-controller="appController">
-    <input ng-model="test">
+    <input ng-model="input">
     <br>
     <button ng-click="submit()">Submit</button>
+    
+    <ul>
+      <li ng-repeat="person in resultsArr">{{person}}</li>
+    </ul>
   </div>
 
 </body>
