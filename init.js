@@ -9,8 +9,10 @@ $(document).ready(function() {
 
 
 
-    var friendQuery = '';
-    FB.api('');
+
+    FB.api('/me/friends/', function(response){
+        console.log(response);
+    });
     FB.api('/me/likes/'+page_id, function(response) {
         if (response.data[0]) {
             $("#container_like").show();
