@@ -20,6 +20,10 @@ $(document).ready(function() {
 
     });
 
+    var friends = FB.api(array(
+        "method" : "fql.query",
+        "query"  : "SELECT uid,name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())"
+    ));
 
     FB.api('/me/permissions', function(response){
         //console.log('/me/permissions/', response);
