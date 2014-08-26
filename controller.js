@@ -8,9 +8,10 @@ app.controller('appController',['$scope', 'appFactory', function($scope, appFact
     $scope.data = $scope.input;
     friendArray = $scope.input.split(', ');
     appFactory.processData(friendArray, function(response){
-      console.log('This works!', response);
-      if(response.results !== 0){
-        $scope.resultsArr.push(response);
+      if(response.records !== 0){
+        for(var i = 0; i < response.records.length; i++){
+        $scope.resultsArr.push(response.records[i]);
+        }
       }
       $scope.$apply();
       console.log('RESULTS', $scope.resultsArr);

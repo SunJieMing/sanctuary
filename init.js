@@ -1,3 +1,5 @@
+//this information is used for facebook authentication.
+
 // $(document).ready(function() {
 //     FB.login(function(response) {
 //         if (response.status == 'connected') {

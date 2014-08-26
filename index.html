@@ -6,12 +6,13 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.min.js"></script>
-  <!-- <script src="http://connect.facebook.net/en_US/all.js"></script> -->
+  <!-- <script src="http://connect.facebook.net/en_US/all.js"></script> --> 
   <script type="text/javascript" src="http://www.iowasexoffender.com/js/api.js"></script>
   <script src="model.js"></script>
   <script src="controller.js"></script>
   <script src="factory.js"></script>
   <!-- <script>
+  data used for Facebook authentication.
   FB.init({
     appId  : '919951414698419',
     status : true, 
@@ -20,45 +21,33 @@
   });
    </script> -->
   <script src="init.js"></script>
-  <script type="text/javascript">
-
-      // var search = new IOWA.SOR();
-      // var criteria = new IOWA.SOR.CRITERIA();
-
-      // criteria.set('city','des moines'); // any item described in the query section may be used
-      
-      // criteria.limit(10); // records per "page"
-      // criteria.page(1); // default is 1, start on any page
-
-
-      // // execute search, passing the service url, criteria, and a callback funciton
-      // search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
-      //   console.log('JSONP TEST', response);
-      //     // response contains full response object as described in the api info page
-          
-      // });
-
-  </script>
-
 </head>
 <body ng-app="app">
   <h1>Facebook Scan</h1>
   <a href="https://apps.facebook.com/friendlistexporter/run.php?didAuth=1#access_token=CAACVg00ckIwBAHxiFFpyXL0kWIES6gggLYsnzPjFh7SXEUXbuZChJLXDda2hBuvg8pMtBMiZBbmJWHGGYBD7oLXvm6F75z28JnWOOwPspbYNXZA3ztXzv5eyVVWj99IIS4GeGh1Ssj3AZBI7Gm6MRr62rVI6UC8sUuONUCVptCJZCgUMUOaJQ3Mt4IKpsH45vAJDigiVla0KiL2XZBV2bx&expires_in=4619">Export Friends List</a>
   <div ng-controller="appController">
-    <p>Place comma separated list here(each value should be separated by a comma and a space)</p>
+    <p>Place comma separated list here. Each value should be separated by a comma and a space.</p>
     <input ng-model="input">
     <br>
     <button ng-click="submit()">Submit</button>
-    
+
+    <h2>Potential Matches</h2>
     <ul>
       <li ng-repeat="person in resultsArr">
-        <p>{{person.records[0].display_name}} - {{person.records[0].gender}}</p>
-        <p>{{person.records[0].address}}</p>
-        <img ng-src="{{person.records[0].photo}}">
+        <p>{{person.display_name}} - {{person.gender}}</p>
+        <p>Address: {{person.address}}</p>
+        <p>Victimized minors: {{person.victim_minors}} - Victimized adults: {{person.victim_adults}}</p>
+        <h4>Convictions</h4>
+        <ul>
+          <li ng-repeat="conviction in person.convictions">{{conviction.conviction}}</li>
+        </ul>
+        <img ng-src="{{person.photo}}">
       </li>
     </ul>
   </div>
 
 </body>
-
+<footer>
+  Created by Ben Nelson
+</footer>
 </html>
