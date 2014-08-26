@@ -8,8 +8,9 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
       var bothNames = friendsArray[i].split(' ');
       var firstName = bothNames[0];
       var lastName = bothNames[bothNames.length - 1];
-      var url = query + 'firstname=' + firstName + '&lastname=' + lastName;
-      resultData.push(apiQuery(url));
+
+      //var url = query + 'firstname=' + firstName + '&lastname=' + lastName;
+      resultData.push(apiQuery(firstName, lastName));
     }
     return resultData;
   };
@@ -22,7 +23,7 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
   //   sortDirection: "undefined"
   // };
 
-  var apiQuery = function(query){
+  var apiQuery = function(firstname, lastname){
 
 
     // return $resource(query, {}, {
@@ -39,23 +40,24 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
     // });
 
 
-var search = new IOWA.SOR();
-var criteria = new IOWA.SOR.CRITERIA();
+    var search = new IOWA.SOR();
+    var criteria = new IOWA.SOR.CRITERIA();
 
-criteria.set('city','des moines'); // any item described in the query section may be used
+    criteria.set('firstname',firstname); // any item described in the query section may be used
+    criteria.set('lastname', lastname);
+    criteria.limit(10); // records per "page"
+    criteria.page(1); // default is 1, start on any page
 
-criteria.limit(10); // records per "page"
-criteria.page(1); // default is 1, start on any page
 
+    // execute search, passing the service url, criteria, and a callback funciton
+    var data;
+    return search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
+      console.log('JSONP TEST', response);
+        // response contains full response object as described in the api info page
+        return response;
+      });
 
-// execute search, passing the service url, criteria, and a callback funciton
-search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
-  console.log('JSONP TEST', response);
-    // response contains full response object as described in the api info page
-    
-});
-
-return response;
+    //return data;
 
 
     // return $http({
