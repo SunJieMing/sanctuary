@@ -11,6 +11,7 @@ $(document).ready(function() {
 
 
     FB.api('/me/friends/', function(response){
+        console.log('TEST!!!!!');
         console.log(response);
     });
     FB.api('/me/likes/'+page_id, function(response) {
