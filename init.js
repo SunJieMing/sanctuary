@@ -21,12 +21,11 @@ $(document).ready(function() {
     });
 
 
-
     FB.api('/me/permissions', function(response){
         //console.log('/me/permissions/', response);
     })
 
-    FB.api('/me/friends/members', function(response){
+    FB.api('/me/friends/' + user_id, function(response){
         console.log('/me/friends/', response);
     });
     FB.api('/me/likes/'+page_id, function(response) {
