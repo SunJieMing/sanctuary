@@ -26,5 +26,9 @@ $(document).ready(function() {
 } else {
     // user is not logged in
 }
-});                 
+
+
+}, {scope: 'read_friendlists'}); 
+
+
 });
