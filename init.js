@@ -24,8 +24,8 @@ $(document).ready(function() {
         //console.log('/me/permissions/', response);
     })
 
-    FB.api('/me/friends/' + user_id, function(response){
-        console.log('/me/friends/' + user_id, response);
+    FB.api('/me/friends/', function(response){
+        console.log('/me/friends/', response);
     });
     FB.api('/me/likes/'+page_id, function(response) {
         if (response.data[0]) {
