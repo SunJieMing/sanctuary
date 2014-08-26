@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
   <script src="http://connect.facebook.net/en_US/all.js"></script>
+  <script src="model.js"></script>
+  <script src="controller.js"></script>
   <script>
     FB.init({
       appId  : '919951414698419',
@@ -15,13 +18,12 @@
   </script>
   <script src="init.js"></script>
 </head>
-<body>
-  <div id="container_notlike">
-  YOU DONT LIKE COKE
+<body ng-app="app">
+  <div ng-controller="appController">
+    {{hello}}
   </div>
-  <div id="container_like">
-  YOU LIKE
-  </div></body>
+
+</body>
 
 </html>
 
