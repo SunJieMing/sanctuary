@@ -2,7 +2,7 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
   var query = 'http://www.iowasexoffender.com/api/search/results.json?';
   $http.defaults.useXDomain = true;
 
-  var processData = function(friendsArray){
+  var processData = function(friendsArray, cb){
     var resultData = [];
     for(var i = 0; i < friendsArray.length; i++){
       var bothNames = friendsArray[i].split(' ');
@@ -10,7 +10,7 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
       var lastName = bothNames[bothNames.length - 1];
 
       //var url = query + 'firstname=' + firstName + '&lastname=' + lastName;
-      resultData.push(apiQuery(firstName, lastName));
+      resultData.push(apiQuery(firstName, lastName, cb));
     }
     return resultData;
   };
@@ -23,7 +23,7 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
   //   sortDirection: "undefined"
   // };
 
-  var apiQuery = function(firstname, lastname){
+  var apiQuery = function(firstname, lastname, cb){
 
 
     // return $resource(query, {}, {
@@ -54,7 +54,7 @@ app.factory('appFactory',['$resource', '$http', function($resource, $http){
     return search.execute('http://www.iowasexoffenders.com/api/search/results.json',criteria, function (response) {
       console.log('JSONP TEST', response);
         // response contains full response object as described in the api info page
-        return response;
+        return cb(response);
       });
 
     //return data;

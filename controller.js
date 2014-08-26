@@ -23,12 +23,12 @@ app.controller('appController',['$scope', 'appFactory', function($scope, appFact
     // });
 
 
-
-
     $scope.data = $scope.test;
     friendArray = $scope.test.split(', ');
-    var correlations = appFactory.processData(friendArray);
-    console.log('Are there any matches?????', appFactory.processData(friendArray));
+    appFactory.processData(friendArray, function(response){
+      console.log('This works!', response);
+    });
+    //console.log('Are there any matches?????', appFactory.processData(friendArray));
   }
 
 }]);
