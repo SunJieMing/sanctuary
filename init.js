@@ -8,7 +8,9 @@ $(document).ready(function() {
 
 
 
-
+    FB.api('/me/permissions', function(response){
+        console.log(response);
+    })
 
     FB.api('/me/friends/', function(response){
         console.log('TEST!!!!!');
