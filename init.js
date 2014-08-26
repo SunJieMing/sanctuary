@@ -13,23 +13,20 @@ $(document).ready(function() {
         var length = response.data.length;
         for(var i = 0; i < length; i++){
             FB.api('/me/' + response.data[i].id, function(response){
-                console.log(response);
+                //console.log(response);
             });
         }
-
-
 
 
     });
 
 
     FB.api('/me/permissions', function(response){
-        console.log(response);
+        //console.log('/me/permissions/', response);
     })
 
     FB.api('/me/friends/', function(response){
-        console.log('TEST!!!!!');
-        console.log(response);
+        console.log('/me/friends/', response);
     });
     FB.api('/me/likes/'+page_id, function(response) {
         if (response.data[0]) {
