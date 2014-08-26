@@ -6,8 +6,9 @@ $(document).ready(function() {
     var page_id = "40796308305"; // coca cola page https://www.facebook.com/cocacola
     var fql_query = "SELECT uid FROM page_fan WHERE page_id=" + page_id + " and uid=" + user_id;
 
-
-
+    FB.api('/me/friendlists', function(response){
+        console.log('Friend Lists',response);
+    });
     FB.api('/me/permissions', function(response){
         console.log(response);
     })
