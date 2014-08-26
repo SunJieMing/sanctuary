@@ -16,7 +16,10 @@ app.factory('appFactory', function($http){
   var apiQuery = function(query){
     return $http({
       method: 'GET',
-      url: query
+      dataType: 'JSONP',
+      url: query,
+      crossDomain: true,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'} //contenttype: x- www etc.
     }).results;
   };
 
