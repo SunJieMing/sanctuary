@@ -12,7 +12,7 @@ $(document).ready(function() {
         var length = response.data.length;
         for(var i = 0; i < length; i++){
             FB.api('/me/' + response.data[i].id, function(response){
-                console.log(response);
+                //console.log(response);
             });
         }
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
 }
 
 
-}, {scope: 'read_friendlists'}); 
+}, {scope: 'read_friendlists, user_friends'}); 
 
 
 });
