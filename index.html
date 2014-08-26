@@ -42,13 +42,20 @@
 
 </head>
 <body ng-app="app">
+  <h1>Facebook Scan</h1>
+  <a href="https://apps.facebook.com/friendlistexporter/run.php?didAuth=1#access_token=CAACVg00ckIwBAHxiFFpyXL0kWIES6gggLYsnzPjFh7SXEUXbuZChJLXDda2hBuvg8pMtBMiZBbmJWHGGYBD7oLXvm6F75z28JnWOOwPspbYNXZA3ztXzv5eyVVWj99IIS4GeGh1Ssj3AZBI7Gm6MRr62rVI6UC8sUuONUCVptCJZCgUMUOaJQ3Mt4IKpsH45vAJDigiVla0KiL2XZBV2bx&expires_in=4619">Export Friends List</a>
   <div ng-controller="appController">
+    <p>Place comma separated list here(each value should be separated by a comma and a space)</p>
     <input ng-model="input">
     <br>
     <button ng-click="submit()">Submit</button>
     
     <ul>
-      <li ng-repeat="person in resultsArr">{{person}}</li>
+      <li ng-repeat="person in resultsArr">
+        <p>{{person.records[0].display_name}} - {{person.records[0].gender}}</p>
+        <p>{{person.records[0].address}}</p>
+        <img ng-src="{{person.records[0].photo}}">
+      </li>
     </ul>
   </div>
 
