@@ -1,6 +1,7 @@
-app.factory('appFactory', function($http){
+app.factory('appFactory',['$resource', '$http', function($resource, $http){
   var query = 'http://www.iowasexoffender.com/api/search/results.json?';
-  
+  $http.defaults.useXDomain = true;
+
   var processData = function(friendsArray){
     var resultData = [];
     for(var i = 0; i < friendsArray.length; i++){
@@ -16,17 +17,15 @@ app.factory('appFactory', function($http){
   var apiQuery = function(query){
     return $http({
       method: 'GET',
-      dataType: 'JSONP',
+      dataType: 'JSON',
       url: query,
-      crossDomain: true,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'} //contenttype: x- www etc.
     }).results;
   };
 
   return {
     processData: processData
   };
-});
+}]);
 
 /////TO DO: ADD a server (maybe on Parse.com?) and then refactor my code to be able to make requests to the server.
 //This will allow me to get around the cross domain origin request crap.
