@@ -24,3 +24,11 @@ app.factory('appFactory', function($http){
     processData: processData
   };
 });
+
+/////TO DO: ADD a server (maybe on Parse.com?) and then refactor my code to be able to make requests to the server.
+//This will allow me to get around the cross domain origin request crap.
+//I think.
+//Maybe there is something else that I can do with the Facebook API.
+//Right now it is pretty bare bones but I want to make it work.
+//I BETTER doublecheck to make sure that the server is absolutely necessary before I begin writing all that code.
+//Get help on this one.
