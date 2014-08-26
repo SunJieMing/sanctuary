@@ -17,7 +17,7 @@ app.factory('appFactory', function($http){
     return $http({
       method: 'GET',
       url: query
-    })
+    }).results;
   };
 
   return {
