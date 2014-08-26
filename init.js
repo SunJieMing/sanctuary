@@ -8,6 +8,13 @@ $(document).ready(function() {
 
     FB.api('/me/friendlists', function(response){
         console.log('Friend Lists',response);
+        for (var i = 0; i < response[data].length; i++){
+            console.log('Friend List', response[data]);
+        }
+
+
+
+
     });
     FB.api('/me/permissions', function(response){
         console.log(response);
