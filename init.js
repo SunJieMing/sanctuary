@@ -9,7 +9,14 @@ $(document).ready(function() {
     FB.api('/me/friendlists', function(response){
 
         debugger;
-        console.log('Friend Lists',response.data[0]);
+        console.log('Friend Lists',response.data.length);
+        var length = response.data.length;
+        for(var i = 0; i < length; i++){
+            FB.api('/me/' + response.data[i].id, function(response){
+                console.log(response);
+            });
+        }
+
 
 
 
