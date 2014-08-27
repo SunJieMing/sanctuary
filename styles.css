@@ -1,8 +1,9 @@
 .mugshot {
   display: inline;
 }
-.offender-block {
-  width: 87%;;
+#offender-block {
+  width: 87%;
+  background-color: #f2f5fc;
 }
 .submission-block {
   margin-left: 10%;

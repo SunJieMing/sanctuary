@@ -40,7 +40,7 @@
 
     <h2 class="list-header">Potential Matches</h2>
     <ul class="list-group">
-      <li class="list-group-item offender-block" ng-repeat="person in resultsArr">
+      <li id="offender-block" class="list-group-item" ng-repeat="person in resultsArr">
         <h3>{{person.display_name}}</h3> {{person.gender}}
         <p>Address: {{person.address}}</p>
         <p>Victimized minors: {{person.victim_minors}} - Victimized adults: {{person.victim_adults}}</p>
