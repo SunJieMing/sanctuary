@@ -1,7 +1,10 @@
 app.factory('appFactory',['$resource', '$http', function($resource, $http){
   var query = 'http://www.iowasexoffender.com/api/search/results.json?';
+  
   $http.defaults.useXDomain = true;
+
   var dataStorage = [];
+
   var processData = function(friendsArray, cb){
     var resultData = [];
     for(var i = 0; i < friendsArray.length; i++){
